@@ -1,0 +1,157 @@
+
+{% block body %}
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title> Gym Management - Wellness City</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/A.style.css.pagespeed.cf.69oUKoK-5A.css">
+<!-- Bootstrap core CSS -->
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+ <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        grid-gap: 20px;
+        margin-top: 10%;
+      }
+
+      .card {
+        display: grid;
+        color: black;
+        font-weight: bold;
+        grid-template-rows: max-content 200px 1fr;
+        float:left;
+        cursor: pointer;
+      }
+
+      .alert {
+        position:fixed; 
+        top: 5%; 
+        left: 30%; 
+        width: 25%;
+        z-index:9999; 
+        border-radius:0px
+      }
+
+      .card img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-caption{
+        width : 25%;
+        color: white;
+        font-weight: bold;
+      }
+
+      .form-group{
+        border: 1px;
+        width : 800px;
+        height : 90px;
+        margin-left: auto;
+        margin-right: 40%;
+        margin-top: 20px;
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+      }
+
+      .btn{
+        margin-top: 0%;
+      }
+
+      .navbar {
+        height: 70px;
+      }
+
+      .homepage-title{
+        font-size: 35.5px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body {
+        background: url("https://i.pinimg.com/originals/8f/c6/b7/8fc6b715427139c92428b777ec913022.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+
+{% include 'includes/_navbar.html' %}
+
+<div class="text-white">
+	<h1 style="font-family: Georgia, serif;">Free-Trail SignUp Form</h1>
+  <div class="font-italic">
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.name, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.username, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.email, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.password, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.confirm, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.startdate, class_="datepicker")}}
+    </div>
+     <div class="form-group">
+      {{render_field(form.address, class_="form-control")}}
+    </div>
+     <div class="form-group">
+      {{render_field(form.city, class_="form-control")}}
+    </div>
+     <div class="form-group">
+      {{render_field(form.phone, class_="form-control")}}
+    </div>
+    <div class="form-group">
+          {{ form.submit(class="btn btn-primary") }}
+      </div>
+  </form>
+</div>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+{% endblock %}

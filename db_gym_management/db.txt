@@ -1,0 +1,116 @@
+CREATE TABLE tbl_gym_profiles (
+name VARCHAR(200),
+username VARCHAR(200),
+email varchar(100),
+password VARCHAR(500),
+perm INT,
+address VARCHAR(100),
+city VARCHAR(50),
+phone VARCHAR(32)
+);
+
+INSERT INTO tbl_gym_profiles (name, username, email, password, perm, address, city, phone)
+ VALUES('Sravani Thota', 'Sravani', 'sravanithota96@gmail.com', '$5$rounds=535000$QAh6JjUQwpD/fPGB$YoU3MGoQGhjoLwrO99nLpTkjGIhShR/wchpWMYACirB', 1, 'Owens Drive', 'Pleansanton', 12345);
+
+#INSERT INTO tbl_gym_profiles (name, username, email, password, perm, address, city, phone)
+#VALUES('Dhanasree', 'Dhana', 'dhana@gmail.com', '$5$rounds=535000$RAta80K0BwgMi7Ap$eXU.4tM9vbdGohHHvVYEsqAYC.w0CGdtbmPsPVFMAF2', 2, 'xyz', 'Fremont', '1234567');
+#DELETE FROM tbl_gym_profiles WHERE username='SravaniThota';
+
+INSERT INTO tbl_gym_profiles (name, username, email, password, perm, address, city, phone)
+ VALUES('Vahed Shaik', 'vahed', 'vahedshaik786@gmail.com', '$5$rounds=535000$7PhmwzIGcmaL5Rpe$ZzLI8N.MxeLoVkNuNdVlttcqv3jwI8yfWvez2DlEW95', 1, 'Cahil Park', 'San Jose', 12345);
+
+CREATE TABLE tbl_gym_members (
+username VARCHAR(50),
+plan VARCHAR(30)
+);
+
+#SET SQL_SAFE_UPDATES = 0;
+
+#SELECT * FROM tbl_gym_members;
+
+#SELECT * FROM tbl_gym_profiles;
+
+CREATE TABLE tbl_gym_plans (
+name VARCHAR(50)
+);
+
+INSERT INTO tbl_gym_plans (name)
+VALUES ('Month-to-Month'), ('6-Month'), ('Yearly');
+
+#SELECT * FROM tbl_gym_plans;
+
+CREATE TABLE tbl_gym_information(
+ 	id int not null auto_increment primary key,
+ 	gym_name varchar(100),
+     location varchar(100),
+     address varchar(500),
+     phone varchar(15),
+     hours varchar(30)
+ );
+
+ INSERT INTO tbl_gym_information (gym_name, location, address, phone, hours)
+ VALUES ('Wellness City','Fremont','193, Christy Street, Fremont', '510-222-2222', '6 am  - 11 pm'),('Wellness City','San Jose','45, East Santa Clara Street, San Jose', '301-222-2222', '6 am  - 11.30 pm'), ('Wellness City','San Francisco','2457, Market street, San Francisco', '415-222-2222', '5 am  - 1 am');
+
+#select * from tbl_gym_information
+
+ CREATE TABLE tbl_gym_membership(
+ 	location varchar(100) not null primary key,
+ 	membership_price varchar(100),
+     duration varchar(100)
+ );
+
+ INSERT INTO tbl_gym_membership (location, membership_price, duration)
+ VALUES ('Fremont','$1200', '12 months') , ('San Jose','$1200', '12 months'), ('San Francisco','$1600', '12 months');
+
+ CREATE TABLE tbl_fremont_class_schedule(
+ 	id int not null auto_increment primary key,
+ 	class_name varchar(100) not null,
+ 	class_timing varchar(100),
+     class_days varchar(100),
+ 	group_size varchar(100)
+ );
+
+ CREATE TABLE tbl_san_jose_class_schedule(
+ 	id int not null auto_increment primary key,
+ 	class_name varchar(100) not null,
+ 	class_timing varchar(100),
+     class_days varchar(100),
+ 	group_size varchar(100)
+ );
+
+ CREATE TABLE tbl_class_schedule(
+ 	id int not null auto_increment primary key,
+ 	class_name varchar(100) not null,
+ 	class_timing varchar(100),
+ 	class_days varchar(100),
+ 	group_size varchar(100),
+ 	location varchar(100)
+ );
+
+ INSERT INTO tbl_class_schedule (class_name, class_timing, class_days, group_size, location)
+ VALUES ('Yoga','6-7 am', 'Mon-Fri', '15', 'Fremont') , ('Boxing','8-9 am', 'Sun-Thur', '10', 'Fremont'), ('Zumba','6-7pm', 'Sat-Sun', '25', 'Fremont'), ('Aqua fit', '5-6pm', 'Mon-Fri', '7', 'Fremont'), ('Dance', '6.30-7pm','Sun-Sat', '20', 'Fremont'),
+ ('Yoga','6-7 am', 'Mon-Fri', '15', 'San Jose') , ('Boxing','8-9 am', 'Sun-Thur', '10', 'San Jose'), ('Zumba','6-7pm', 'Sat-Sun', '25', 'San Jose'), ('Aqua fit', '5-6pm', 'Mon-Fri', '7', 'San Jose'), ('Dance', '6.30-7pm','Sun-Sat', '20', 'San Jose'),
+ ('Yoga','5-6 am', 'Mon-Fri', '15', 'San Francisco') , ('Boxing','7-8 am', 'Sun-Thur', '20', 'San Francisco'), ('Zumba','6-7pm', 'Sat-Sun', '25', 'San Francisco'), ('Aqua fit', '5-6pm', 'Mon-Fri', '15', 'San Francisco'), ('Dance batch 1', '6.30-7pm','Sun-Sat', '20', 'San Francisco'),
+ ('Dance batch 2', '7-7.30pm','Sun-Sat', '20', 'San Francisco');
+
+#select * from tbl_class_schedule
+
+ INSERT INTO tbl_fremont_class_schedule (class_name, class_timing, class_days, group_size)
+ VALUES ('Yoga','6-7 am', 'Mon-Fri', '15') , ('Boxing','8-9 am', 'Sun-Thur', '10'), ('Zumba','6-7pm', 'Sat-Sun', '25'), ('Aqua fit', '5-6pm', 'Mon-Fri', '7'), ('Dance', '6.30-7pm','Sun-Sat', '20');
+
+
+ -- INSERT INTO tbl_san_francisco_class_schedule (class_name, class_timing, class_days, group_size)
+ -- VALUES ('Yoga','6-7 am', 'Mon-Fri', '15') , ('Boxing','8-9 am', 'Sun-Thur', '10'), ('Zumba','6-7pm', 'Sat-Sun', '25'), ('Aqua fit', '5-6pm', 'Mon-Fri', '7'), ('Dance', '6.30-7pm','Sun-Sat', '20');
+
+ INSERT INTO tbl_san_jose_class_schedule (class_name, class_timing, class_days, group_size)
+ VALUES ('Yoga','6-7 am', 'Mon-Fri', '15') , ('Boxing','8-9 am', 'Sun-Thur', '10'), ('Zumba','6-7pm', 'Sat-Sun', '25'), ('Aqua fit', '5-6pm', 'Mon-Fri', '7'), ('Dance', '6.30-7pm','Sun-Sat', '20');
+
+select * from tbl_gym_information;
+
+CREATE TABLE tbl_checked_in(
+	id int not null auto_increment primary key,
+	email varchar(100),
+	check_in_timestamp varchar(100),
+	check_out_timestamp varchar(100),
+	is_checked_in TINYINT(1)
+);

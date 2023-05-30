@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title> Gym Management - Wellness City</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/A.style.css.pagespeed.cf.69oUKoK-5A.css">
+
+    <!-- Bootstrap core CSS -->
+    <!link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+
+      .card-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        margin-top: 5%;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        grid-gap: 20px;
+        margin-top: 10%;
+      }
+      
+      .card-title{
+        color: white;
+        font-weight: bolder;
+        font-size: xx-large;
+      }
+
+      .card {
+        display: grid;
+        color: black;
+        font-weight: bold;
+        grid-template-rows: max-content 200px 1fr;
+        float:left;
+        cursor: pointer;
+      }
+
+      .card img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel-caption{
+        width : 25%;
+        color: white;
+        font-weight: bold;
+      }
+
+      .form-group{
+        border: 1px;
+        width : 220px;
+        height : 90px;
+        margin-left: auto;
+        margin-right: 10%;
+        margin-top: 20px;
+        color: white;
+        font-size: medium;
+        font-weight: bold;
+      }
+
+      .btn{
+        margin-top: 10%;
+      }
+
+      .navbar {
+        height: 100px;
+      }
+
+      .homepage-title{
+        font-size: 35.5px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      body {
+        background: url("https://i.pinimg.com/originals/8f/c6/b7/8fc6b715427139c92428b777ec913022.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .chart-container {
+        width: calc(100vw / 3);
+        height: calc(100vw / 3);
+        background-color: black;
+        margin-left: 15%;
+        margin-top: 10%;
+      }
+
+      #chart {
+        width: 100%;
+        max-width: 600px;
+        background-color: aliceblue;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+      }
+      .bar {
+        background: green;
+      }
+      .exceed {
+        background: blueviolet;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <!link href="album.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      function checkIfAlreadyEnrolled() {
+        var already_enrolled = "{{ already_enrolled }}"
+        var location = "{{ location }}"
+        if (already_enrolled == "True") {
+          alert("You have already enrolled!")
+          window.history.back()  
+        }
+      }
+
+    </script>
+    {% include 'includes/_navbar.html' %}
+  </head>
+  <body>
+    <header>
+      <div class="navbar navbar-dark bg-dark shadow-sm"> 
+        <div class="container d-flex justify-content-between">
+          <a href="/analyticsDash" class="navbar-brand d-flex align-items-center">
+            <strong class="homepage-title"> &nbsp; Wellness City</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+
+
+    
+
+<section class="jumbotron text-center">
+<br>
+  <h5 class="card-title" style="background-color: black;">Analytics Dashboard</h5>
+  <div class="row">
+    
+    
+    <div class="col-lg-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+          <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+            <div class="container">
+                <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Number of Classes Enrolled</strong>
+                <div class="row border-bottom">
+                  <div class="col-sm">
+                    <strong class="d-inline-block mb-2 text-primary" >Username</strong>
+                  </div>
+                  <div class="col-sm">
+                    <strong class="d-inline-block mb-2 text-primary">No. of Classes</strong>
+                  </div>
+                </div>
+            </div>
+
+            {% for res in result.classes %}
+            <div class="container">
+                <div class="row border-bottom">
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                  </div>
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary">{{res[1]}}</span>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div> 
+    </div>
+    <div class="col-lg-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+        <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+          <div class="container">
+              <strong class="d-inline-block mb-2 text-primary border-bottom w-100">No. of Members</strong>
+          </div>
+          {% for res in result.no_of_members %}
+          <div class="container">
+              <div class="row border-bottom">
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div> 
+    </div>
+    <div class="col-lg-6">
+      <br/>
+      <h5 style="color: ghostwhite;margin-left: 20%;background-color: black;margin-right: 20%;"><strong>Enrollments : Total number of Enrollments</strong></h5>
+      <div class="chart-container">
+        <canvas id="enrollmentsChart"></canvas>
+      </div>
+
+      <script>
+        classes = [];
+        n_enrollments = [];
+        {% for record in result.enrollments %}
+          classes.push("{{ record[0] }}");
+          n_enrollments.push({{ record[1] }});
+        {% endfor %}
+        console.log(classes, n_enrollments);
+        var canvas = document.getElementById('enrollmentsChart');
+        canvas.width = 70; // new width
+        canvas.height = 70; // new height
+        var ctx = document.getElementById('enrollmentsChart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: classes,
+            datasets: [{
+              label: 'Enrollments',
+              data: n_enrollments,
+              backgroundColor: 'rgba(0, 255, 0, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Enrollments : Number of Enrollments',
+              fontColor: 'Black',
+              fontSize: 20,
+            },
+            layout: {
+              padding: {
+                left: 10
+              }
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  fontColor: 'white'
+                },
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontColor: 'white'
+                },
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              }]
+            },
+            legend: {
+              labels: {
+                fontColor: 'white'
+              }
+            }
+          }
+        });
+
+      </script>
+        <!-- <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+          <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+            <div class="container">
+                <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Enrollments</strong>
+                <div class="row border-bottom">
+                  <div class="col-sm">
+                    <strong class="d-inline-block mb-2 text-primary" >Class Name</strong>
+                  </div>
+                  <div class="col-sm">
+                    <strong class="d-inline-block mb-2 text-primary">No. of Enrollments</strong>
+                  </div>
+                </div>
+            </div>
+            {% for res in result.enrollments %}
+            <div class="container">
+                <div class="row border-bottom">
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                  </div>
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary">{{res[1]}}</span>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>  -->
+    </div>
+    
+    <div class="col-lg-6">
+      
+      <h5 style="color: ghostwhite;margin-left: 20%;background-color: black;margin-right: 20%;"><strong>Hours spent in Gym in a day</strong></h5>
+      <div class="chart-container">
+        <canvas id="hoursSpentMinutesChart"></canvas>
+      </div>
+
+      <script>
+        days = [];
+        n_minutes = [];
+        {% for record in result.hours_in_gym_day %}
+          days.push("{{ record[0] }}");
+          n_minutes.push({{ record[1] }});
+        {% endfor %}
+        console.log(days, n_minutes);
+        var canvas = document.getElementById('hoursSpentMinutesChart');
+        canvas.width = 70; // new width
+        canvas.height = 70; // new height
+        var ctx = document.getElementById('hoursSpentMinutesChart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: days,
+            datasets: [{
+              label: 'Hours spent in gym',
+              data: n_minutes,
+              backgroundColor: 'rgba(0, 255, 0, 0.2)',
+              borderColor: 'rgba(0, 255, 0, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Enrollments : Number of Enrollments',
+              fontColor: 'Black',
+              fontSize: 20,
+            },
+            layout: {
+              padding: {
+                left: 10
+              }
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  fontColor: 'white'
+                },
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              }],
+              xAxes: [{
+                ticks: {
+                  fontColor: 'white'
+                },
+                gridLines: {
+                  color: 'rgba(255, 255, 255, 0.1)'
+                }
+              }]
+            },
+            legend: {
+              labels: {
+                fontColor: 'white'
+              }
+            }
+          }
+        });
+
+      </script>
+      
+      
+      <!-- <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+        <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+          <div class="container">
+              <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Hours spent in Gym in a day</strong>
+              <div class="row border-bottom">
+                <div class="col-sm">
+                  <strong class="d-inline-block mb-2 text-primary" >Day</strong>
+                </div>
+                <div class="col-sm">
+                  <strong class="d-inline-block mb-2 text-primary">No. of Minutes</strong>
+                </div>
+              </div>
+          </div>
+          {% for res in result.hours_in_gym_day %}
+          <div class="container">
+              <div class="row border-bottom">
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                </div>
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary">{{res[1]}}</span>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>  -->
+    </div>
+    <div class="col-lg-6">
+
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+        <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+          <div class="container">
+              <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Hours spent in Gym in a week</strong>
+              <div class="row border-bottom">
+                <div class="col-sm">
+                  <strong class="d-inline-block mb-2 text-primary" >Week</strong>
+                </div>
+                <div class="col-sm">
+                  <strong class="d-inline-block mb-2 text-primary" >Location</strong>
+                </div>
+                <div class="col-sm">
+                  <strong class="d-inline-block mb-2 text-primary">No. of Minutes</strong>
+                </div>
+              </div>
+          </div>
+          {% for res in result.hours_in_gym_week %}
+          {% if res[0] == None or res[1] == None %}
+          {% else %}
+          <div class="container">
+              <div class="row border-bottom">
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                </div>
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary">{{res[1]}}</span>
+                </div>
+                <div class="col-sm">
+                  <span class="d-inline-block mb-2 text-primary">{{res[2]}}</span>
+                </div>
+              </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div> 
+  </div>
+  <div class="col-lg-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+      <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+        <div class="container">
+            <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Hours spent in Gym in a month</strong>
+            <div class="row border-bottom">
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary" >Month</strong>
+              </div>
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary" >Location</strong>
+              </div>
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary">No. of Minutes</strong>
+              </div>
+            </div>
+        </div>
+        {% for res in result.hours_in_gym_month %}
+        {% if res[0] == None or res[1] == None %}
+        {% else %}
+        <div class="container">
+            <div class="row border-bottom">
+              <div class="col-sm">
+                <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+              </div>
+              <div class="col-sm">
+                <span class="d-inline-block mb-2 text-primary">{{res[1]}}</span>
+              </div>
+              <div class="col-sm">
+                <span class="d-inline-block mb-2 text-primary">{{res[2]}}</span>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div> 
+</div>
+    <div class="col-lg-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"; style="width:75%;margin:auto;top: 10%;">
+          <div class="col p-4 d-flex flex-column position-static" style="background-color: whitesmoke;">
+            <div class="container">
+                <strong class="d-inline-block mb-2 text-primary border-bottom w-100">Number of Visitors</strong>
+            </div>
+            <div class="row border-bottom">
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary" >Date</strong>
+              </div>
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary">Type of day</strong>
+              </div>
+              <div class="col-sm">
+                <strong class="d-inline-block mb-2 text-primary">Number of Visitors</strong>
+              </div>
+            </div>
+            {% for res in result.no_of_visitors %}
+            {% if res[0] == None or res[1] == None %}
+            {% else %}
+            <div class="container">
+                <div class="row border-bottom">
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary" >{{res[0]}}</span>
+                  </div>
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary" >{{res[2]}}</span>
+                  </div>
+                  <div class="col-sm">
+                    <span class="d-inline-block mb-2 text-primary" >{{res[3]}}</span>
+                  </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div> 
+    </div>
+  <div class="col-lg-6">
+    <div class="row  position-relative"; style="width:75%;margin:auto;top: 5%;">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <br>
+    <h5 style="color: ghostwhite;background-color: black;"><strong>Workout: Total Minutes Spent on Each Equipment</strong></h5>
+    <div class="chart-container" style="margin-left: 5%;width: 100;" >
+      <canvas id="myChart2" ></canvas>
+    </div>
+    <script>
+      var weekdays = [];
+      var weekend = [];
+      
+      {% for res in result.no_of_visitors %}
+        {% if res[2] == "weekday" or res[2] == "weekend" %}
+          {% if res[2] == "weekday" %}
+            weekdays.push({{ res[3] }});
+          {% else %}
+            weekend.push({{ res[3] }});
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      
+      var labels = ["Weekday", "Weekend"];
+      var data = [weekdays.reduce((a, b) => a + b, 0), weekend.reduce((a, b) => a + b, 0)];
+      
+      var canvas = document.getElementById('myChart2');
+      canvas.width = 70; // new width
+      canvas.height = 70; // new height
+      var ctx = document.getElementById('myChart2').getContext('2d');
+      var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Number of Visitors',
+            data: data,
+            backgroundColor: 'rgba(0, 255, 0, 0.2)',
+            borderColor: 'rgba(0, 255, 0, 1)',
+            borderWidth: 1,
+            fontColor: 'rgba(0, 255, 0, 1)'
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Aggregate Number of Visitors on Weekdays and Weekends',
+            fontColor: 'white',
+            fontSize: 100,
+          },
+          layout: {
+            padding: {
+              left: 10
+            }
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                fontColor: 'white'
+              },
+              gridLines: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }],
+            xAxes: [{
+              ticks: {
+                fontColor: 'white'
+              },
+              gridLines: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }]
+          },
+          legend: {
+            labels: {
+              fontColor: 'white'
+            }
+          }
+        }
+      });
+    
+    </script>
+    
+  </div>  
+</section>
